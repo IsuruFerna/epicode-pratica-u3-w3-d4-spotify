@@ -2,18 +2,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SingleAlbum from "./SingleAlbum";
 import { useEffect, useState } from "react";
-import { HeartFill } from "react-bootstrap-icons";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
 
 const AlbumSection = ({ title, album }) => {
    const [trackList, setTrackList] = useState(null);
-   //  const [liked, setLiked] = useState([]);
-
-   //  const btnLike = () => {
-   //     setLiked(!liked);
-   //  };
-   //  console.log("liked? ", like);
 
    useEffect(() => {
       if (album) {
@@ -34,37 +25,23 @@ const AlbumSection = ({ title, album }) => {
             .catch((err) => console.log("ERROR ", err));
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+   }, [album]);
 
    return (
       <Container className="mb-5">
          <Row>
             <h1 className="text-white mb-4 mt-1">{title}</h1>
 
-            {trackList &&
-               trackList
-                  .filter((track, index) => index < 4)
-                  .map((track) => {
-                     return (
-                        // <Col key={track.id} xs={6} md={3}>
-                        //    <Image src={track.album.cover_medium} fluid />
-                        //    <div className="d-flex flex-column text-center text-white">
-                        //       <p className="fw-blod my-0">
-                        //          Track: {track.album.title}
-                        //       </p>
-                        //       <p className="fw-blod my-0">
-                        //          Artist: {track.artist.name}
-                        //       </p>
-                        //       <HeartFill onClick={btnLike} />
-                        //    </div>
-                        // </Col>
-                        <SingleAlbum key={track.id} track={track} />
-                     );
-                  })}
-            {/* <SingleAlbum track={track} />
-            <SingleAlbum data={trackList} />
-            <SingleAlbum data={trackList} />
-            <SingleAlbum data={trackList} /> */}
+            {trackList && title !== "Searched Results"
+               ? trackList
+                    .filter((track, index) => index < 4)
+                    .map((track) => {
+                       return <SingleAlbum key={track.id} track={track} />;
+                    })
+               : trackList &&
+                 trackList.map((track) => {
+                    return <SingleAlbum key={track.id} track={track} />;
+                 })}
          </Row>
       </Container>
    );

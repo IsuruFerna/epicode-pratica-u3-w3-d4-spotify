@@ -6,9 +6,18 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToSearced, addTosearchedTitle } from "../redux/actions";
+import Liked from "./Liked";
 
 function SideBar() {
    const [search, setSearch] = useState("");
+   const [searchResult, setSearchResults] = useState(null);
+   const dispatch = useDispatch();
+   // const searchedFromReduxStore = useSelector((state) => state.searched.search);
+   // const searchedTitleFromReduxStore = useSelector(
+   //    (state) => state.searchedTitle.searchedTitle
+   // );
 
    const handleChange = (e) => {
       setSearch(e.target.value);
@@ -17,7 +26,12 @@ function SideBar() {
    const handleSubmit = (e) => {
       e.preventDefault();
       setSearch(search.trim());
+      dispatch(addToSearced(searchResult));
+      dispatch(addTosearchedTitle(search));
    };
+
+   // console.log("redux search: ", searchedFromReduxStore);
+   // console.log("redux searched title: ", searchedTitleFromReduxStore);
 
    useEffect(() => {
       if (search) {
@@ -33,6 +47,7 @@ function SideBar() {
             })
             .then((data) => {
                console.log("data receaved!", data);
+               setSearchResults(data.data);
             })
             .catch((err) => console.log("ERROR ", err));
       }
@@ -42,7 +57,7 @@ function SideBar() {
       <Col lg={2} className="d-none d-lg-block fixed-left p-0">
          <Navbar
             expand="lg"
-            className="bg-body-tertiary dark-bg h-100 align-items-start"
+            className="bg-body-tertiary dark-bg align-items-start"
             bg="dark"
             data-bs-theme="dark"
          >
@@ -92,6 +107,7 @@ function SideBar() {
                </Form>
             </Container>
          </Navbar>
+         <Liked />
       </Col>
    );
 }

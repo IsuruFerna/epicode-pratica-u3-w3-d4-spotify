@@ -9,9 +9,9 @@ const SingleAlbum = ({ track }) => {
    //  const [selectedTrack, setSelectedTrack] = useState(null);
    const dispatch = useDispatch();
    //  const trackFromReduxStore = useSelector((state) => state.track.track);
-   //  const likedTrackFromReduxStore = useSelector(
-   //     (state) => state.liked.likedTracks
-   //  );
+   // const likedTrackFromReduxStore = useSelector(
+   //    (state) => state.liked.likedTracks
+   // );
 
    //  console.log("liked ", likedTrackFromReduxStore);
 
@@ -28,10 +28,11 @@ const SingleAlbum = ({ track }) => {
             src={track.album.cover_medium}
             fluid
          />
-         <div className="d-flex flex-column text-center text-white">
+         <div className="d-flex flex-column align-items-center text-center text-white">
             <p className="fw-blod my-0">Track: {track.title}</p>
             <p className="fw-blod my-0">Artist: {track.artist.name}</p>
             <HeartFill
+               className="mt-2 mb-3"
                onClick={() => {
                   dispatch(addToLike(track));
                }}

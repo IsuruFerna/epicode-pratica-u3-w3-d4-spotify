@@ -1,7 +1,7 @@
 import { SELECTED_TRACK } from "../actions";
 
 const initialState = {
-   track: [],
+   track: null,
 };
 
 const trackReducer = (state = initialState, action) => {

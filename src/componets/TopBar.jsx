@@ -11,16 +11,16 @@ const TopBar = () => {
                   TRNDING
                </h4>
                <h4 href="#" className="mx-3 mt-3 mainLinks">
-                  TRNDING
+                  PODCAST
                </h4>
                <h4 href="#" className="mx-3 mt-3 mainLinks">
-                  TRNDING
+                  MOODS AND GENRES
                </h4>
                <h4 href="#" className="mx-3 mt-3 mainLinks">
-                  TRNDING
+                  NEW RELEASES
                </h4>
                <h4 href="#" className="mx-3 mt-3 mainLinks">
-                  TRNDING
+                  DISCOVER
                </h4>
             </Col>
          </Row>
