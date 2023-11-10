@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-// import SingleAlbum from "./SingleAlbum";
+import SingleAlbum from "./SingleAlbum";
 import { useEffect, useState } from "react";
 import { HeartFill } from "react-bootstrap-icons";
 import Col from "react-bootstrap/Col";
@@ -8,11 +8,11 @@ import Image from "react-bootstrap/Image";
 
 const AlbumSection = ({ title, album }) => {
    const [trackList, setTrackList] = useState(null);
-   const [liked, setLiked] = useState([]);
+   //  const [liked, setLiked] = useState([]);
 
-   const btnLike = () => {
-      setLiked(!liked);
-   };
+   //  const btnLike = () => {
+   //     setLiked(!liked);
+   //  };
    //  console.log("liked? ", like);
 
    useEffect(() => {
@@ -46,21 +46,22 @@ const AlbumSection = ({ title, album }) => {
                   .filter((track, index) => index < 4)
                   .map((track) => {
                      return (
-                        <Col key={track.id} xs={6} md={3} className="">
-                           <Image src={track.album.cover_medium} fluid />
-                           <div className="d-flex flex-column text-center text-white">
-                              <p className="fw-blod my-0">
-                                 Track: {track.album.title}
-                              </p>
-                              <p className="fw-blod my-0">
-                                 Artist: {track.artist.name}
-                              </p>
-                              <HeartFill onClick={btnLike} />
-                           </div>
-                        </Col>
+                        // <Col key={track.id} xs={6} md={3}>
+                        //    <Image src={track.album.cover_medium} fluid />
+                        //    <div className="d-flex flex-column text-center text-white">
+                        //       <p className="fw-blod my-0">
+                        //          Track: {track.album.title}
+                        //       </p>
+                        //       <p className="fw-blod my-0">
+                        //          Artist: {track.artist.name}
+                        //       </p>
+                        //       <HeartFill onClick={btnLike} />
+                        //    </div>
+                        // </Col>
+                        <SingleAlbum key={track.id} track={track} />
                      );
                   })}
-            {/* <SingleAlbum data={trackList} />
+            {/* <SingleAlbum track={track} />
             <SingleAlbum data={trackList} />
             <SingleAlbum data={trackList} />
             <SingleAlbum data={trackList} /> */}
