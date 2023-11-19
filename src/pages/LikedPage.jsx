@@ -50,10 +50,10 @@ const LikedPage = () => {
                                  </p>
                               </Col>
                               <Col xs={3}>
-                                 <p className="my-1">Date added</p>
+                                 <p className="my-1">Album</p>
                               </Col>
                               <Col xs={3}>
-                                 <p className="my-1">Album</p>
+                                 <p className="my-1">Date added</p>
                               </Col>
                               <Col xs={2}>
                                  <p className="my-1 ms-5">
@@ -65,7 +65,7 @@ const LikedPage = () => {
                         <div className="liked-list-bg-back ">
                            {likedSongsReduxStore.length > 0 &&
                               likedSongsReduxStore.map((track, i) => {
-                                 console.log("this is each track: ", track);
+                                 // console.log("this is each track: ", track);
                                  return (
                                     <LikedSingleTrack
                                        key={track.id}
@@ -74,8 +74,6 @@ const LikedPage = () => {
                                     />
                                  );
                               })}
-                           {/* <LikedSingleTrack />
-                        <LikedSingleTrack /> */}
                         </div>
                      </div>
                   </div>
