@@ -1,4 +1,5 @@
 .sidebar-right,
-.player-bg {
+.player-bg,
+.liked-list-bg-back {
    background-color: #121212 !important;
 }

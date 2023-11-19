@@ -60,7 +60,7 @@
 .liked-play-list-track {
    /* From https://css.glass */
    background: rgba(33, 33, 33, 0.21);
-   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.452);
+   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.452); */
    backdrop-filter: blur(5.8px);
    -webkit-backdrop-filter: blur(5.8px);
 }
@@ -71,4 +71,8 @@
    box-shadow: 0 4px 30px rgba(34, 34, 34, 0.178);
    backdrop-filter: blur(5.8px);
    -webkit-backdrop-filter: blur(5.8px);
+}
+
+.top-7em {
+   top: 17em !important;
 }
