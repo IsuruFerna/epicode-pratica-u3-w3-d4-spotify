@@ -7,6 +7,11 @@
    background: linear-gradient(135deg, #20e9a9, #7835b8);
 }
 
+.liked-heart-big {
+   font-size: 5em;
+   margin: 1em;
+}
+
 .list-item-liked:hover {
    background-color: #393939 !important;
    margin-right: 2em;
@@ -16,4 +21,54 @@
    background-color: #181818 !important;
    margin-right: 2em;
    border-radius: 5px;
+}
+
+.like-title-header-bg {
+   background: rgb(78, 56, 154);
+   background: linear-gradient(
+      180deg,
+      rgba(78, 56, 154, 1) 0%,
+      rgba(0, 0, 0, 0.7058473047422094) 75%,
+      rgba(0, 0, 0, 1) 100%
+   );
+}
+
+.liked-list-bg {
+   background-color: #000000 !important;
+}
+
+.btn-play {
+   color: #1fdf64;
+   font-size: 3.5em;
+}
+
+.liked-play-list-header {
+   /* From https://css.glass */
+   background: rgba(33, 33, 33, 0.21);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.452);
+   backdrop-filter: blur(5.8px);
+   -webkit-backdrop-filter: blur(5.8px);
+}
+
+.liked-play-list-title {
+   /* From https://css.glass */
+   background: rgba(33, 33, 33, 0.21);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.699);
+   backdrop-filter: blur(5.8px);
+   -webkit-backdrop-filter: blur(5.8px);
+}
+.liked-play-list-track {
+   /* From https://css.glass */
+   background: rgba(33, 33, 33, 0.21);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.452);
+   backdrop-filter: blur(5.8px);
+   -webkit-backdrop-filter: blur(5.8px);
+}
+.liked-play-list-track:hover {
+   /* From https://css.glass */
+   border-radius: 0.2em;
+   background: rgba(32, 32, 32, 0.747);
+   box-shadow: 0 4px 30px rgba(34, 34, 34, 0.178);
+   backdrop-filter: blur(5.8px);
+   -webkit-backdrop-filter: blur(5.8px);
 }
