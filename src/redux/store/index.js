@@ -1,13 +1,13 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import trackReducer from "../reducers/track";
 import likeReducer from "../reducers/liked";
-import searchReducer from "../reducers/search";
+import searchReducer from "../reducers/searchResults";
 import searchTitleReducer from "../reducers/searchTitle";
 
 const bigReducer = combineReducers({
    track: trackReducer,
    liked: likeReducer,
-   searched: searchReducer,
+   searchedResult: searchReducer,
    searchedTitle: searchTitleReducer,
 });
 

@@ -1,8 +1,16 @@
 export const SELECTED_TRACK = "SELECTED_TRACK";
 export const ADD_TO_LIKE = "ADD_TO_LIKE";
+export const REMOVE_LIKE = "REMOVE_LIKE";
 export const ADD_TO_SEARCH = "ADD_TO_SEARCH";
-export const GET_SEARCHED_RESULTS = "GET_SEARCHED_RESULTS";
+export const SAVE_RESULTS = "SAVE_RESULTS";
 export const SEARCHED_TITLE = "SEARCHED_TITLE";
+
+export const removeFromLikes = (i) => {
+   return {
+      type: REMOVE_LIKE,
+      payload: i,
+   };
+};
 
 export const addTosearchedTitle = (result) => {
    return {
@@ -32,26 +40,44 @@ export const addToSearced = (result) => {
    };
 };
 
-export const getSearchedResults = (querry) => {
+export const getSearchedResults = (query) => {
    return async (dispatch) => {
-      fetch(
-         "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + querry
-      )
-         .then((res) => {
-            if (res.ok) {
-               return res.json();
-            } else {
-               throw new Error("errore nel recupero dei tracce");
-            }
-         })
-         .then((result) => {
+      try {
+         const response = await fetch(
+            "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
+               query
+         );
+         if (response.ok) {
+            const { data } = await response.json();
             dispatch({
-               type: GET_SEARCHED_RESULTS,
-               payload: result,
+               type: SAVE_RESULTS,
+               payload: data,
             });
-         })
-         .catch((err) => {
-            console.log("errore", err);
-         });
+         } else {
+            throw new Error("Error receaving data!");
+         }
+      } catch (error) {
+         console.log(error);
+      }
+
+      // fetch(
+      //    "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + query
+      // )
+      //    .then((res) => {
+      //       if (res.ok) {
+      //          return res.json();
+      //       } else {
+      //          throw new Error("errore nel recupero dei tracce");
+      //       }
+      //    })
+      //    .then((result) => {
+      //       dispatch({
+      //          type: SAVE_RESULTS,
+      //          payload: result,
+      //       });
+      //    })
+      //    .catch((err) => {
+      //       console.log("errore", err);
+      //    });
    };
 };

@@ -1,7 +1,7 @@
-import { ADD_TO_LIKE } from "../actions";
+import { ADD_TO_LIKE, REMOVE_LIKE } from "../actions";
 
 const initialState = {
-   likedTracks: [],
+   content: [],
 };
 
 const likeReducer = (state = initialState, action) => {
@@ -9,7 +9,13 @@ const likeReducer = (state = initialState, action) => {
       case ADD_TO_LIKE:
          return {
             ...state,
-            likedTracks: [...state.likedTracks, action.payload],
+            content: [...state.content, action.payload],
+         };
+
+      case REMOVE_LIKE:
+         return {
+            ...state,
+            content: state.content.filter((track, i) => i !== action.payload),
          };
 
       default:

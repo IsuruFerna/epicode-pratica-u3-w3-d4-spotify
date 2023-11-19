@@ -1,7 +1,7 @@
-import { ADD_TO_SEARCH } from "../actions";
+import { ADD_TO_SEARCH, SAVE_RESULTS } from "../actions";
 
 const initialState = {
-   search: [],
+   content: [],
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -9,9 +9,14 @@ const searchReducer = (state = initialState, action) => {
       case ADD_TO_SEARCH:
          return {
             ...state,
-            search: [...state.search, action.payload],
+            content: [...state.content, action.payload],
          };
 
+      case SAVE_RESULTS:
+         return {
+            ...state,
+            content: action.payload,
+         };
       default:
          return state;
    }

@@ -9,7 +9,7 @@ const Player = () => {
    //  console.log("player side selected: ", trackFromReduxStore.length);
 
    return (
-      <Container className="fixed-buttom bg-container player" fluid>
+      <Container className="fixed-buttom bg-container player player-bg " fluid>
          <Row>
             {/* <Col md={2} className="d-none d-lg-block ">
                this is player

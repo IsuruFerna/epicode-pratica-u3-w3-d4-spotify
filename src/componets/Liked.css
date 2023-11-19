@@ -1,0 +1,19 @@
+.liked-bg {
+   /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=20e9a9&c2=7835b8&gt=l&gd=dtl
+*/
+   background: #20e9a9;
+   background: linear-gradient(135deg, #20e9a9, #7835b8);
+}
+
+.list-item-liked:hover {
+   background-color: #393939 !important;
+   margin-right: 2em;
+   border-radius: 5px;
+}
+.list-item-liked {
+   background-color: #181818 !important;
+   margin-right: 2em;
+   border-radius: 5px;
+}
